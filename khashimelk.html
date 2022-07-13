@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>khashimelk</title>
+        <meta charset="utf-8">
+        <meta name="description" content="this site is going to help people to find thier suit estate such as house,store,builing,land,etc "> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/8ff4ac4612.js" crossorigin="anonymous"></script>
+
+         <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                background-color:rgba(10, 135, 73, 0.427);
+                border-radius: 10px;
+                
+    
+               }
+               body{
+                position: relative;
+                background-color:rgb(246, 240, 240);
+                margin: 2%;
+                margin-bottom: 0;
+                height: 1600px;
+                border-radius: 10px;
+
+               }
+            header {
+                position: relative;
+                display: flex;
+                min-width: 300px;
+                width: 55%;
+                height: 50px;
+                margin: auto;
+                margin-top: 45px;
+                align-items: center;
+            }
+            header i {
+                margin: 0 7px;
+            }
+            .signin{
+                position: absolute;
+                 right: 0;
+                 height:40px;
+                 max-width: 100px;
+                 border-radius: 10px;
+            }
+            .signin:hover {
+                background-color: black;
+                color:rgb(232, 229, 229);
+                cursor: pointer;
+
+            }
+            .signin a {
+                text-decoration: none;
+                font-size: large;
+                font-weight: bold;
+                color: black;
+                line-height: 35px;
+                margin: 25px 20px;
+                width: 110px;
+                height:60px;
+            }
+
+            .signin:hover a {
+                color:rgb(232, 229, 229); 
+            }
+            .menu {
+                line-height: 30px;
+                height: 28px;
+                border-radius: 3px;
+                
+            }
+
+            .menu:hover ,.menu:focus {
+                background-color: black;
+
+            }
+
+            .menu:hover #menuicon{
+                color:rgb(232, 229, 229);
+            }
+
+            .menunotation {
+                background-color: rgb(0, 0, 0,0.8);
+                color: white;
+                padding:0 3px;
+                border-radius: 6px;
+                position: absolute;
+                top: -30px;
+                display: none;
+                transition: 2s;
+                
+
+            }
+
+            .menunotation::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 40%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgb(0, 0, 0,0.8) transparent transparent transparent;
+            }
+
+
+            .menu:hover .menunotation{
+                display: block;
+            }
+
+
+            #menuitem {
+                position: absolute;
+                background-color: rgb(119, 185, 185);
+                border-radius: 3px;
+                box-shadow: 0px 8px 12px 2px rgba(0,0,0,0.2);
+                display: none;
+                width: 150px;
+                z-index: 1;
+            }
+
+            #menuitem a {
+                padding: 0 3px;
+                margin:2px;
+                color: black;
+                text-decoration: none;
+                display: block;
+            }
+            #menuitem a:hover {
+                border-radius: 2px;
+                background-color: rgb(157, 166, 55);
+                color: rgb(233, 237, 237);
+            }
+            
+            .home {
+                line-height: 30px;
+                height: 28px;
+                border-radius: 3px;
+            }
+
+            .homenotation {
+                background-color: rgb(0, 0, 0,0.8);
+                color: white;
+                padding:0 3px;
+                border-radius: 6px;
+                position: absolute;
+                top: -30px;
+                display: none;
+
+            }
+
+            .homenotation::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgb(0, 0, 0,0.8) transparent transparent transparent;
+            }
+
+            .home:hover .homenotation{
+                display: block;
+            }
+
+
+            #homeicon {
+                color: black;
+            }
+            
+            .home:hover , .home:focus {
+                background-color: black;
+            }
+            .home:hover #homeicon{
+                color:rgb(232, 229, 229);
+            }
+
+            .searchdiv {
+                background-color: rgb(255, 255, 255);
+                height: 30px;
+                max-width: 205px;
+                border-radius: 6px;
+            }
+            .searchnotation {
+                background-color: rgb(0, 0, 0,0.8);
+                color: white;
+                padding:3px 5px;
+                border-radius: 6px;
+                position: absolute;
+                top: -25px;
+                display: none;
+
+            }
+
+            .searchnotation::after{
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color:  rgb(0, 0, 0,0.8)transparent transparent transparent;
+            }
+
+
+            .searchdiv:hover .searchnotation{
+                display: block;
+            }
+
+            #searchicon {
+                line-height: 30px;
+                margin-left: 5px;
+                color: black;
+            }
+
+            #searchbox {
+                max-width:140px;
+                margin-left: 0;
+                outline-style: none;
+                border: none;
+            }
+
+           .hr1 {
+               margin: auto;
+               max-width: 55%;
+               font-weight: bold;
+           } 
+           .hr2 {
+               margin-top: 20px;
+               height:2px;
+               border-width:1px solid;
+               color:rgb(6, 5, 5);
+               background-color:rgb(0, 0, 0);
+           }
+
+           
+           .big-img-container {
+            margin: 5px;
+            margin-top: 40px;
+            padding: 5px 5px;
+            border-radius: 6PX;
+            display: flex;
+           }
+
+            .imgdiv {
+            position: relative;
+            background-image:url("khashimelk-image4.jpg");
+            border-radius: 10px;
+            width: 45%;
+            max-width:650px;
+            height: 450px;
+            box-shadow: 10px 10px 30px #111111;
+            margin: auto;
+            border: 5px solid #07d849a1;
+            resize: both;
+           }
+
+           
+
+           .imgtextdiv {
+               backdrop-filter: blur(4px);
+               position: absolute;
+               border: 10px solid #07c7d8;
+               border-radius: 20px 0 20px 0;
+               font-size:30px;
+               font-weight: bold;
+               color: #fffffd;
+               text-align: center;
+               max-width: 30%;
+               padding:30px;
+               top: 30%;
+               left: 30%;
+               word-wrap: break-word;
+           }
+
+           
+           
+           .ads {
+               display: inline-block;
+               background-color: #e2ea0dc6;
+               width: 20%;
+               height: 400px;
+               border-radius: 15px;
+               margin: auto;
+               border: 5px solid #07c7d8ad;
+               box-shadow: 10px 10px 50px #948c8c;
+           }
+
+
+           /* slideshow section */
+
+           .slideshow-container {
+               height: 300px;
+               margin-top: 20px;
+               border-radius: 15px;
+           }
+
+           .slideshowwraper{
+               display: flex;
+               width: 68%;
+               margin: auto;
+           }
+
+
+           .slideshowlinkdivs {
+               border-radius: 6px;
+               background-color: #fffffd;
+               margin: 1%;
+               display: grid;
+               box-shadow: 5px 5px 20px  #111111;
+
+           }
+
+           .slideshowlinks {
+               box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                border-radius: 6px;
+                margin: auto;
+                border: 3px solid darkorange;
+           }
+
+           .captionforimglink {
+               text-align: center;
+               margin: 5%;
+               text-decoration: none;
+               font-size: 18px;
+               color: #111111;
+           }
+
+           .captionforimglink:hover{
+               color: rgb(57, 240, 37);
+               text-decoration: underline;
+           }
+
+
+
+
+
+           /*
+           .slideshowbtn {
+               width:100px;
+               height: 75px;
+               background-color: transparent;
+               border: none;
+               border-radius: 20%;
+               
+           }
+           .slideshowbtn:hover {
+               color: #948c8c;
+               background-color: rgb(69, 65, 65);
+           }
+           */
+
+
+
+
+
+           
+
+           /*linelinks section*/
+
+           .linelinks-container {
+            display:flex ;
+           }
+
+           .linelinks-wrapper{
+               width: 360px;
+               height: 400px;
+               background-color: #fffffd;
+               border-radius: 10px;
+               margin: auto;
+           }
+
+           .ul-title{
+               padding: 10px;
+               font-size: 20px;
+               font-family:'Times New Roman', Times, serif;
+           }
+
+           .list-item{
+               font-size: 17px;
+               margin: 5px;
+               margin-left: 20px;
+               color: #11d0e1;
+           }
+
+           .line-link{
+                text-decoration: none;
+                font-size: 17px;
+                font-family:cursive;
+                color: rgb(48, 52, 51);
+           }
+           .line-link:hover {
+               color: rgb(57, 240, 37);
+               text-decoration: underline;
+           }
+
+           /* back-to-up section*/
+
+           .backtoupbtn{
+               display: none;
+               width: 40px;
+               height: 35px;
+               background-color: #12d212c6;
+               border-radius: 30%;
+               font-size: 18px;
+               font-weight: bold;
+               float: right;
+               margin-right: 20px;
+               position: fixed;
+               right: 20px;
+               bottom: 25px;
+               z-index: 1;
+           }
+
+           .backtoupbtn:hover{
+               background-color: rgb(5, 220, 116);
+           }
+          
+
+           /* footer section*/
+           footer {
+               box-sizing: border-box;
+               position: absolute;
+               width: 100%;
+               height: 250px;
+               bottom: 0;
+               background-color: #040505d2;
+               overflow: hidden;
+               border: 10px outset rgba(62, 157, 144, 0.87);
+               padding: 5px;
+           }
+
+           .footermaindiv{
+               display: flex;
+
+           }
+        
+           .footerdivs {
+               display:grid;
+               padding: 15px;
+               width: 20%;
+           }
+
+           .footer-title {
+            color: rgb(255, 247, 247);
+           }
+
+           .footerlinks {
+            text-decoration: none;
+            color: rgb(211, 207, 207);
+            font-size: large;
+            width: fit-content;
+
+            
+           }
+
+           .footerlinks:hover {
+               color: #26f226;
+           }
+
+
+           
+
+           
+
+
+           
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="menu" onclick="menuVisibility()">
+                <div class="menunotation" id="menunotation">menu</div>
+                <i class="fa-solid fa-bars fa-xl" id="menuicon"></i>
+                <div id="menuitem">
+                    <a href="" id="news">news</a>
+                    <a href="" id="information">information</a>
+                    <a href="" id="contact">contact</a> 
+                </div>
+            </div>
+            <div class="home">
+                <div class="homenotation">home</div>
+                <a href=""><i href="khashimelk.html" class="fa-solid fa-house-chimney fa-xl" id="homeicon"></i></a>
+            </div>
+            <div class="searchdiv">
+                <div class="searchnotation">search</div>
+                <a href=""><i class="fa-brands fa-searchengin fa-xl" id="searchicon"></i></a>
+                <input type="search" id="searchbox" placeholder="search">
+            </div>
+            <div class="signin">
+                <a href="signin page.html"><font face="cursive">sign in</font></a>
+            </div>
+            
+            
+        
+            
+        </header>
+
+
+
+        <div class="hr1">
+            <hr/>
+        </div>
+
+
+
+        <div class="big-img-container">
+            <div class="ads adsdivright"></div>
+            <div class="imgdiv">
+                <div class="imgtextdiv">welcome to khashimelk</div>
+            </div>
+        <div class="ads adsdivleft"></div>
+        </div>
+
+
+
+        <div class="hr2">
+            <hr/>
+        </div>
+
+
+        <div class="slideshow-container">
+            <div class="slideshowwraper">
+                
+                <!--<button type="button" class="slideshowbtn" id="previousbtn">previous</button>-->
+                
+                <div class="slideshowlinkdivs">
+                    <a href=""><img src="khashimelk-image5.jpg" alt="link image" class="slideshowlinks"></a>
+                    <a href="" class="captionforimglink">nice villa</a>
+                </div>
+                <div class="slideshowlinkdivs">
+                    <a href=""><img src="khashimelk-image5.jpg" alt="link image" class="slideshowlinks"></a>
+                    <a href="" class="captionforimglink">nice villa</a>
+                </div>
+                <div class="slideshowlinkdivs">
+                    <a href=""><img src="khashimelk-image5.jpg" alt="link image" class="slideshowlinks"></a>
+                    <a href="" class="captionforimglink">nice villa</a>
+                </div>
+                <div class="slideshowlinkdivs">
+                    <a href=""><img src="khashimelk-image5.jpg" alt="link image" class="slideshowlinks"></a>
+                    <a href="" class="captionforimglink">nice villa</a>
+                </div>
+                <div class="slideshowlinkdivs">
+                    <a href=""><img src="khashimelk-image5.jpg" alt="link image" class="slideshowlinks"></a>
+                    <a href="" class="captionforimglink">nice villa</a>
+                </div>
+                
+                <!--<button type="button" class="slideshowbtn" id="nextbtn">next</button>-->
+                
+            </div>
+        </div>
+
+
+
+        <div class="linelinks-container">
+            <div class="linelinks-wrapper">
+                <ul><h3 class="ul-title">top visited</h3>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                </ul>
+            </div>
+            <div class="linelinks-wrapper">
+                <ul><h3 class="ul-title">the new</h3>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                    <li class="list-item"><a href="" class="line-link">link</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!--  back-to-top section-->
+
+        <button type="button" class="backtoupbtn" id="backtoup-btn" onclick="clicktoup()">Top</button>
+
+
+
+        <footer>
+            <h1 class="footer-title" style="text-align: center;">good to see you here.</h1>
+
+
+            <div class="footermaindiv">
+                
+            
+              <!--about site section-->
+
+              <div class="aboutsite footerdivs">
+                <h2 class="aboutsiteitem footer-title">Khashimelk</h2>
+                <a href="" class="footerlinks">copyright © 2022 khashimelk.co</a>
+                
+              </div>
+
+
+              <!-- trade section-->
+
+              <div class="trade footerdivs">
+                <h2 class="footer-title">Trade</h2>
+                <a href="" class="footerlinks">House</a>
+                <a href="" class="footerlinks">land</a>
+                <a href="" class="footerlinks">Property</a>
+              </div>
+
+
+              <!--rent section-->
+            
+              <div class="rent footerdivs">
+                <h2 class="footer-title">Rent</h2>
+                <a href="" class="footerlinks">House</a>
+                <a href="" class="footerlinks">land</a>
+                <a href="" class="footerlinks">Property</a>
+              </div>
+
+              <!--contact section-->
+
+              <div class="help footerdivs">
+                <h2 class="footer-title">contact</h2>
+                <a href="" class="footerlinks">about us</a>
+                <div class="instagramdiv">
+                    <a href="" class="footerlinks" ><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="whatsupdiv">
+                    <a href="" class="footerlinks"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+              </div>
+            
+              <!--policy section-->
+
+              <div class="policy footerdivs">
+                <a href="" class="footerlinks">privacy policy</a>
+              </div>
+
+
+            </div>
+
+
+
+        </footer>
+
+        <script >
+
+          //show/hide Menu item by clicking menu icon
+          const menuicon = document.getElementsByClassName("menu");
+          const menuitem = document.getElementById("menuitem");
+          
+          function menuVisibility(){
+
+              if(menuitem.style.display=="none"){
+                menuitem.style.display="block";
+              }
+              else{
+                menuitem.style.display="none";
+              }
+          }
+
+          //hide Menu item by clicking window
+
+          document.addEventListener("click",invisiblemenu());
+          
+          function invisiblemenu(){
+              if (menuitem.style.display ==="block")
+              {
+                menuitem.style.display="none";
+              }
+          }
+          
+
+
+
+
+          
+          //slideshow links
+
+          const links = document.getElementsByClassName("slideshowlinkdivs");
+
+          for(let i=0;i<links.length;i++){
+              
+          }
+
+
+
+
+          //back-to-up button
+
+          const backToUpBtn = document.getElementById("backtoup-btn");
+
+
+          window.onscroll = function(){backtoupbtn()};
+
+
+          function backtoupbtn(){
+              if(document.documentElement.scrollTop > 20){
+                  backToUpBtn.style.display = "block";
+              }
+              else{
+                backToUpBtn.style.display = "none";
+              }
+          }
+
+          function clicktoup(){
+                document.documentElement.scrollTop = 0;
+              }
+
+              
+
+
+        </script>
+
+
+        
+
+
+
+    </body>   
+        
+</html>
